@@ -18,6 +18,21 @@ const initialSituations: Situation[] = [
   { id: 8, text: "Ton ami n’ose pas parler en classe." },
   { id: 9, text: "Une personne a trop de notifications sur son téléphone." },
   { id: 10, text: "Un étudiant oublie toujours ses affaires." },
+  { id: 11, text: "Ton ami dépense trop d’argent." },
+  { id: 12, text: "Une camarade ne fait jamais de sport." },
+  { id: 13, text: "Un étudiant se couche toujours très tard." },
+  { id: 14, text: "Ton voisin écoute la musique trop fort." },
+  { id: 15, text: "Une amie veut trouver un petit travail." },
+  { id: 16, text: "Ton frère est toujours devant les écrans." },
+  { id: 17, text: "Une personne a peur de prendre l’avion." },
+  { id: 18, text: "Ton ami veut améliorer sa prononciation." },
+  { id: 19, text: "Une étudiante ne sait pas organiser son temps." },
+  { id: 20, text: "Ton camarade parle trop vite en français." },
+  { id: 21, text: "Une personne veut manger moins de sucre." },
+  { id: 22, text: "Ton ami se dispute souvent avec sa famille." },
+  { id: 23, text: "Une étudiante se sent seule dans sa nouvelle ville." },
+  { id: 24, text: "Ton camarade veut réussir son examen." },
+  { id: 25, text: "Une personne passe trop de temps au travail." },
 ];
 
 const segmentColors = ["#d84a38", "#f2c94c", "#fffaf0", "#17324d"];
@@ -199,7 +214,7 @@ export default function Home() {
                 onPointerCancel={() => setDragging(false)}
               >
                 <div
-                  className={`wheel-disc ${spinning ? "spinning" : ""} ${activeSituations.length === 0 ? "empty" : ""}`}
+                  className={`wheel-disc ${spinning ? "spinning" : ""} ${activeSituations.length > 16 ? "dense" : ""} ${activeSituations.length === 0 ? "empty" : ""}`}
                   ref={wheelRef}
                   style={{ transform: `rotate(${rotation}deg)`, background: createWheelGradient(activeSituations.length) }}
                   aria-hidden="true"
@@ -293,7 +308,7 @@ export default function Home() {
                 <div><b>3</b><span>Conseille</span></div>
               </div>
               {activeSituations.length < initialSituations.length && activeSituations.length > 0 && (
-                <button className="reset-link" type="button" onClick={resetWheel}>Restaurer les 10 phrases</button>
+                <button className="reset-link" type="button" onClick={resetWheel}>Restaurer les 25 phrases</button>
               )}
             </div>
           </aside>
